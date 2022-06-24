@@ -1,0 +1,445 @@
+% !TEX TS-program = pdflatex
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%     filename  = "YourName-Dissertation.tex",
+%     version   = "1.6.5",
+%     date      = "2019/07/10",
+%     authors   = "Gary L. Gray,
+%     copyright = "Gary L. Gray",
+%     address   = "Engineering Science and Mechanics,
+%                  212 Earth & Engineering Sciences Bldg.,
+%                  Penn State University,
+%                  University Park, PA 16802,
+%                  USA",
+%     telephone = "814-863-1778",
+%     email     = "gray@psu.edu",
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Change History:
+% The change history can be found in the accompanying document
+% entitled "YourName-Dissertation Template Change History.md".
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% This is a template file to help get you started using the
+% psuthesis.cls for theses and dissertations at Penn State
+% University. You will, of course, need to put the
+% psuthesis.cls file someplace that LaTeX will find it.
+%
+% I have set up a directory structure that I find to be clean
+% and convenient. You can readjust it to suit your tastes. In
+% fact, the structure used by our students is even a little
+% more involved and commands are defined to point to the
+% various directories.
+%
+% This document has been set up to be typeset using pdflatex.
+% About the only thing you will need to change if typesetting
+% using latex is the \DeclareGraphicsExtensions command.
+%
+% The psuthesis document class uses the same options as the
+% book class. In addition, it requires that you have the
+% ifthen, calc, setspace, and tocloft packages.
+%
+% The first additional option specifies the degree type. You
+% can choose from:
+%	Ph.D. using class option <phd>
+%	M.S. using class option <ms>
+%	M.Eng. using class option <meng>
+%	M.A. using class option <ma>
+%	B.S. using class option <bs>
+%	B.A. using class option <ba>
+%	Honors from the Schreyer Honors College <schreyer>
+%
+% The second additional option inlinechaptertoc determines
+% the formatting of the Chapter entries in the Table of
+% Contents. The default sets them as two-line entries (try it).
+% If you want them as one-line entries, issue the
+% inlinechaptertoc option.
+%
+% The class option schreyer should be used for theses
+% submitted to the Schreyer Honors College.
+%
+% The class option esc should be used by all Engineering Science
+% students.
+%
+% The option option twoha should be used if you are earning
+% interdisciplanary honors and thus have two honors advisors.
+%
+% The class option ``secondthesissupervisor'' should be used
+% for baccalaureate honors degrees if you have a second
+% Thesis Supervisor.
+%
+% The vita is only included with the phd option and it is
+% placed at the end of the thesis. The permissions page is only
+% included with the ms, meng, and ma options.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Only one of the following lines should be used at a time.
+% Doctoral students.
+%\documentclass[phd,12pt]{psuthesis}
+% Masters students
+%\documentclass[ms,12pt]{psuthesis}
+% Bachelors students in the Schreyer Honors College.
+\documentclass[bs,schreyer,12pt]{psuthesis}
+% Bachelors students in the Schreyer Honors College & Engineering Science.
+%\documentclass[bs,schreyer,esc,twoha,12pt]{psuthesis}
+% Bachelors students in Engineering Science.
+%\documentclass[bs,esc,12pt]{psuthesis}
+
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{textcomp}
+\usepackage{microtype}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Packages I like to use. %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{amsmath}
+\usepackage{amssymb}
+%\usepackage{amsthm}
+%\usepackage{exscale}
+%\usepackage[mathscr]{eucal}
+%\usepackage{bm}
+\usepackage{subfigure}
+\usepackage{eqlist} % Makes for a nice list of symbols.
+\usepackage[nosepfour,warning,np,debug,autolanguage]{numprint}
+\usepackage{acro}
+\usepackage{booktabs}
+\usepackage[final]{graphicx}
+\usepackage[dvipsnames]{color}
+\DeclareGraphicsExtensions{.pdf, .jpg}
+
+\usepackage{url}
+
+% http://www.tex.ac.uk/cgi-bin/texfaq2html?label=citesort
+\usepackage{cite}
+
+\usepackage{titlesec}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Use of the hyperref package %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% This is optional and is included only for those students
+% who want to use it.
+%
+% To the hyperref package, uncomment the following line:
+%\usepackage{hyperref}
+%
+% Note that you should also uncomment the following line:
+%\renewcommand{\theHchapter}{\thepart.\thechapter}
+%
+% to work around some a problem hyperref has with the fact
+% the psuthesis class has unnumbered pages after which page
+% counters are reset.
+
+% Set the baselinestretch using the setspace package.
+% The LaTeX Companion claims that a \baselinestretch of
+% 1.24 gives one-and-a-half line spacing, which is allowed
+% by the PSU thesis office. As of October 18, 2013, the Graduate
+% School states ``The text of an eTD may be single-, double- or
+% one- and-a-half-spaced.'' Go nuts!
+\setstretch{1.24}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% SPECIAL SYMBOLS AND NEW COMMANDS %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{SupplementaryMaterial/UserDefinedCommands}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Renewed Float Parameters              %
+% (Makes floats fit better on the page) %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\renewcommand{\floatpagefraction}{0.85}
+\renewcommand{\topfraction}      {0.85}
+\renewcommand{\bottomfraction}   {0.85}
+\renewcommand{\textfraction}     {0.15}
+
+% ----------------------------------------------------------- %
+
+%%%%%%%%%%%%%%%%
+% FRONT-MATTER %
+%%%%%%%%%%%%%%%%
+% Title
+\title{Dynamics of Fish}
+
+% Author and Department
+\author{Your Name}
+\dept{Your Department Name}
+% the degree will be conferred on this date
+\degreedate{May 2013}
+% year of your copyright
+\copyrightyear{2013}
+
+% This command is used for students submitting a thesis to the
+% Schreyer Honors College and for students in Engineering Science.
+% The argument of this command should contain every after the word
+% ``requirements'' that appears on the title page. This provides the
+% needed flexibility for all the degree types.
+\bachelorsdegreeinfo{for a baccalaureate degree \\ in Engineering Science \\ with honors in Engineering Science}
+
+% This is the document type. For example, this could also be:
+%	Comprehensive Document
+%	Thesis Proposal
+\documenttype{Thesis}
+%\documenttype{Dissertation}
+%\documenttype{Comprehensive Document}
+
+
+% This will generally be The Graduate School, though you can
+% put anything in here to suit your needs.
+\submittedto{The Graduate School}
+
+% This is the college to which you are submitting the
+% thesis/dissertation.
+\collegesubmittedto{College of Engineering}
+
+
+%%%%%%%%%%%%%%%%%%
+% Signatory Page %
+%%%%%%%%%%%%%%%%%%
+% You can have up to 7 committee members, i.e., one advisor
+% and up to 6 readers.
+%
+% Begin by specifying the number of readers.
+\numberofreaders{4}
+
+% For baccalaureate honors degrees, enter the name of your
+% honors advisor below.
+\honorsadvisor{Honors P. Advisor}
+{Associate Professor of Engineering Science and Mechanics}
+\honorsadvisortwo{Honors P. Advisor, Jr.}
+{Professor of Engineering Science and Mechanics}
+
+% For baccalaureate honors degrees, if you have a second
+% Thesis Supervisor, enter his or her name below.
+\secondthesissupervisor{Second T. Supervisor}
+
+% For baccalaureate honors degrees, certain departments
+% (e.g., Engineering Science and Mechanics) require the
+% signature of the department head. In that case, enter the
+% name and title of your department head below.
+\escdepthead{Department Q. Head}
+\escdeptheadtitle{P. B. Breneman Chair and Professor 
+of Engineering Science and Mechanics
+}
+
+% Input reader information below. The optional argument, which
+% comes first, goes on the second line before the name.
+\advisor[Thesis Advisor][Chair of Committee]
+		{Joseph H. Blow}
+		{Professor of SomeThing}
+
+\readerone[Optional Title Here]
+			{Reader Name}
+			{Professor of SomeThing}
+
+\readertwo[Optional Title Here]
+			{Reader Name}
+			{Professor of SomeThing}
+
+\readerthree[Optional Title Here]
+			{Reader Name}
+			{Professor of SomeThing}
+
+\readerfour[Optional Title Here]
+			{Reader Name}
+			{Professor of SomeThing}
+
+\readerfive[Optional Title Here]
+			{Reader Name}
+			{Professor of SomeThing}
+
+% Format the Chapter headings using the titlesec package.
+% You can format section headings and the like here too.
+\definecolor{gray75}{gray}{0.75}
+\newcommand{\hsp}{\hspace{15pt}}
+\titleformat{\chapter}[display]{\fontsize{30}{30}\selectfont\bfseries\sffamily}{Chapter \thechapter\hsp\textcolor{gray75}{\raisebox{3pt}{|}}}{0pt}{}{}
+
+\titleformat{\section}[block]{\Large\bfseries\sffamily}{\thesection}{12pt}{}{}
+\titleformat{\subsection}[block]{\large\bfseries\sffamily}{\thesubsection}{12pt}{}{}
+
+
+% Makes use of LaTeX's include facility. Add as many chapters
+% and appendices as you like.
+\includeonly{%
+Chapter-1/Chapter-1,%
+Chapter-2/Chapter-2,%
+Chapter-3/Chapter-3,%
+Chapter-4/Chapter-4,%
+Chapter-5/Chapter-5,%
+Appendix-A/Appendix-A,%
+Appendix-B/Appendix-B,%
+Appendix-C/Appendix-C,%
+Appendix-D/Appendix-D,%
+Appendix-E/Appendix-E%
+}
+
+\usepackage{listings}
+%%%%%%%%%%%%%%%%%
+% THE BEGINNING %
+%%%%%%%%%%%%%%%%%
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L,C,R]{}
+\fancyfoot[L,R]{}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+%%%%%%%%%%%%%%%%%%%%%%%%
+% Preliminary Material %
+%%%%%%%%%%%%%%%%%%%%%%%%
+% This command is needed to properly set up the frontmatter.
+\frontmatter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% IMPORTANT
+%
+% The following commands allow you to include all the
+% frontmatter in your thesis. If you don't need one or more of
+% these items, you can comment it out. Most of these items are
+% actually required by the Grad School -- see the Thesis Guide
+% for details regarding what is and what is not required for
+% your particular degree.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% !!! DO NOT CHANGE THE SEQUENCE OF THESE ITEMS !!!
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Generates the title page based on info you have provided
+% above.
+\psutitlepage
+
+% Generates the committee page -- this is bound with your
+% thesis. If this is an baccalaureate honors thesis, then
+% comment out this line.
+\psucommitteepage
+
+% Generates the abstract. The argument should point to the
+% file containing your abstract. 
+\thesisabstract{SupplementaryMaterial/Abstract}
+
+% Generates the Table of Contents
+\thesistableofcontents
+
+% Generates the List of Figures
+\begin{singlespace}
+\renewcommand{\listfigurename}{\sffamily\Huge List of Figures}
+\setlength{\cftparskip}{\baselineskip}
+\addcontentsline{toc}{chapter}{List of Figures}
+%\fancypagestyle{plain}{%
+%\fancyhf{} % clear all header and footer fields
+%\fancyfoot[C]{\thepage}} % except the center
+\listoffigures
+\end{singlespace}
+\clearpage
+
+% Generates the List of Tables
+\begin{singlespace}
+\renewcommand{\listtablename}{\sffamily\Huge List of Tables}
+\setlength{\cftparskip}{\baselineskip}
+\addcontentsline{toc}{chapter}{List of Tables}
+\listoftables
+\end{singlespace}
+\clearpage
+
+% Generates the List of Symbols. The argument should point to
+% the file containing your List of Symbols. 
+\thesislistofsymbols{SupplementaryMaterial/ListOfSymbols}
+
+% Generates the Acknowledgments. The argument should point to
+% the file containing your Acknowledgments. 
+\thesisacknowledgments{SupplementaryMaterial/Acknowledgments}
+
+% Generates the Epigraph/Dedication. The first argument should
+% point to the file containing your Epigraph/Dedication and
+% the second argument should be the title of this page. 
+%\thesisdedication{SupplementaryMaterial/Dedication}{Dedication}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% This command is needed to get the main part of the %
+% document going.                                    %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\thesismainmatter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% This is an AMS-LaTeX command to allow breaking %
+% of displayed equations across pages. Note the  %
+% closing the "}" just before the bibliography.  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\allowdisplaybreaks{
+%\pagestyle{fancy}
+%\fancyhead{}
+%
+%%%%%%%%%%%%%%%%%%%%%%
+% THE ACTUAL CONTENT %
+%%%%%%%%%%%%%%%%%%%%%%
+% Chapters
+\include{Chapter-1/Chapter-1}
+%\include{Chapter-2/Chapter-2}
+%\include{Chapter-3/Chapter-3}
+%\include{Chapter-4/Chapter-4}
+%\include{Chapter-5/Chapter-5}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Appendices
+%
+% Because of a quirk in LaTeX (see p. 48 of The LaTeX
+% Companion, 2e), you cannot use \include along with
+% \addtocontents if you want things to appear the proper
+% sequence.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\appendix
+\titleformat{\chapter}[display]{\fontsize{30}{30}\selectfont\bfseries\sffamily}{Appendix \thechapter\textcolor{gray75}{\raisebox{3pt}{|}}}{0pt}{}{}
+% If you have a single appendix, then to prevent LaTeX from
+% calling it ``Appendix A'', you should uncomment the following two
+% lines that redefine the \thechapter and \thesection:
+%\renewcommand\thechapter{}
+%\renewcommand\thesection{\arabic{section}}
+\include{Appendix-A/Appendix-A}
+\include{Appendix-B/Appendix-B}
+\include{Appendix-C/Appendix-C}
+\include{Appendix-D/Appendix-D}
+\include{Appendix-E/Appendix-E}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ESM students need to include a Nontechnical Abstract as the %
+% last appendix.                                              %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% This \include command should point to the file containing
+% that abstract.
+%\include{nontechnical-abstract}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+} % End of the \allowdisplaybreak command %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%
+% BIBLIOGRAPHY %
+%%%%%%%%%%%%%%%%
+% You can use BibTeX or other bibliography facility for your
+% bibliography. LaTeX's standard stuff is shown below. If you
+% bibtex, then this section should look something like:
+	\begin{singlespace}
+	\bibliographystyle{GLG-bibstyle}
+	\addcontentsline{toc}{chapter}{Bibliography}
+	\bibliography{Biblio-Database}
+	\end{singlespace}
+
+%\begin{singlespace}
+%\begin{thebibliography}{99}
+%\addcontentsline{toc}{chapter}{Bibliography}
+%\frenchspacing
+
+%\bibitem{Wisdom87} J. Wisdom, ``Rotational Dynamics of Irregularly Shaped Natural Satellites,'' \emph{The Astronomical Journal}, Vol.~94, No.~5, 1987  pp. 1350--1360.
+
+%\bibitem{G&H83} J. Guckenheimer and P. Holmes, \emph{Nonlinear Oscillations, Dynamical Systems, and Bifurcations of Vector Fields}, Springer-Verlag, New York, 1983.
+
+%\end{thebibliography}
+%\end{singlespace}
+
+\backmatter
+
+% Vita
+\vita{SupplementaryMaterial/Vita}
+
+\end{document}
+
