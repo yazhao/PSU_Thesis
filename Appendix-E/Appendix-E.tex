@@ -1,0 +1,113 @@
+% !TEX root = ../YourName-Dissertation.tex
+\Appendix{Title of the Fifth Appendix}
+
+\section{Introduction}
+When in the Course of human events, it becomes necessary for one people  to dissolve the political bands which have connected them with another,  and to assume among the powers of the earth, the separate and equal station  to which the Laws of Nature and of Nature's God entitle them, a decent respect to the opinions of mankind requires that they should declare  the causes which impel them to the separation.
+
+\pagebreak
+Some text.
+{\lstset{language=Fortran}
+\footnotesize
+\begin{lstlisting}
+      program chaos
+c When a LS Fortran program has been compiled and linked into Mac
+c application, all information written to the screen WRITE(6,...) or
+c WRITE(*,...) appears in a standard Mac window, complete with basic
+c menus.
+      external fex, jac
+      double precision atol, rtol, rwork, t, tout, h
+      double precision ttotal, dtout
+      dimension h(3), atol(3), rwork(70), iwork(23)
+	  character*8 tstart, tend
+      neq = 3
+	  
+	  call time(tstart)
+	  write(6,*) "begin integration at  ", tstart
+      write(6,*)
+	  
+c --- Read in the total initial angular momentum.  The total angular
+c     momentum H is always unity due to normalization.
+	  open(unit = 2, file = 'chaos.data', status = 'unknown')
+      read(2,*) h(1), h(2), h(3)
+	  
+c --- The integration begins at t = 0 and the values are printed at
+c     every tout.  tout is incremented below.  ttotal is the length
+c     of the entire integration.  The number of recorded values of
+c     the integration is given by npoints.
+      t = 0.0d0
+      tout = 0.0d0
+      write(6,*) 'Duration of integration interval, i.e., tfinal?'
+      read(6,*) ttotal
+      write(6,*)
+      write(6,*) 'Number of points for trajectory plot?'
+      read(6,*) npoints
+      write(6,*)
+      dtout = ttotal/dfloat(npoints)
+      tout = tout + dtout
+	  
+c --- Tolerance parameters used by lsoda.
+      itol = 2
+      rtol = 1.0d-9
+      atol(1) = 1.0d-9
+      atol(2) = 1.0d-9
+      atol(3) = 1.0d-9
+	  
+c --- Other parameters used by lsoda.  See below.
+      itask = 1
+      istate = 1
+      iopt = 1
+      lrw = 70
+      liw = 23
+      jt = 1
+
+      do 11 kount = 5,10
+         rwork(kount) = 0.0d0
+         iwork(kount) = 0
+  11  continue
+      iwork(6) = 100000
+	  
+	  open(unit = 3, file = 'traj.dat', disp = 'keep',
+     &     status = 'unknown')
+	 
+c --- The actual integration begins here.  Loop on the value of iout.
+      do 40 iout = 1, npoints
+	  
+         call lsoda(fex,neq,h,t,tout,itol,rtol,atol,itask,istate,
+     &              iopt,rwork,lrw,iwork,liw,jdum,jt)
+	  
+c ------ Write the output to the file traj.dat.
+         write(3,20) t, h(1), h(2), h(3)
+  20     format(f9.1, 3e15.6)
+
+         if (mod(tout,5000.0d0) .eq. 0.0d0) then
+            write(6,*) tout
+         end if
+  
+c ------ Check to see that things are going OK.
+         if (istate .lt. 0) go to 80
+		 
+c ------ Set the time at which the integration is next recorded and
+c        continue the do-loop.
+  40     tout = tout + dtout
+  
+      write(6,*) 'number of steps taken: ', iwork(11)
+      write(6,*) 'number of f evaluations: ', iwork(12)
+      write(6,*) 'number of Jacobian evaluations: ', iwork(13)
+      write(6,*) 'method order last used: ', iwork(14)
+      write(6,*) 'method last used (2 = stiff): ', iwork(19)
+      write(6,*) 'value of t at last method switch: ', rwork(15)
+      write(6,*)
+	 
+	  call time(tend)
+	  write(6,*) "end integration at  ", tend
+      stop
+	  
+c --- If there is an error, given by istate < 0, write the following.
+  80  write(6,90) istate
+  90  format(///22h error halt.. istate =,i3)
+  
+      stop
+      end
+
+\end{lstlisting}
+}
