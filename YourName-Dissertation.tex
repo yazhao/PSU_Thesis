@@ -85,6 +85,7 @@
 %\documentclass[bs,esc,12pt]{psuthesis}
 
 \usepackage[T1]{fontenc}
+\usepackage[utf8x]{inputenc}
 \usepackage{lmodern}
 \usepackage{textcomp}
 \usepackage{microtype}
@@ -93,6 +94,7 @@
 % Packages I like to use. %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage{amsmath}
+\usepackage{amsfonts}
 \usepackage{amssymb}
 %\usepackage{amsthm}
 %\usepackage{exscale}
@@ -122,7 +124,17 @@
 % who want to use it.
 %
 % To the hyperref package, uncomment the following line:
+% Note that these links will be printed in \textcolor (usually black)
+%\usepackage[hidelinks]{hyperref}
+%
+% If you would prefer colored links instead, uncomment
 %\usepackage{hyperref}
+%\hypersetup{
+%	colorlinks,
+%	linkcolor={red!10!black},
+%	citecolor={blue!50!black},
+%	urlcolor={blue!80!black}
+%}
 %
 % Note that you should also uncomment the following line:
 %\renewcommand{\theHchapter}{\thepart.\thechapter}
