@@ -11,6 +11,6 @@ To use this as your dissertation, download the entire repository as a .zip file 
 
 While the initial version of this thesis template is based on Dr. Gray's work, future changes might be made to the class file and documents to account for changes in formatting and content. If you know of an issue to work on, use the Issues tab to let me know, and if you have suggested changes according to changes in Penn State's required format, please use the pull requests function.
 
-### Documentation of future changes
+### New changes
 
 06/04/2023 (from mtryan83): Updated package setup to remove red and green boxes around links to be in line with Format Review, removed "Signatures are on file..." footnote on signatures page as it is not in line with Format Review
