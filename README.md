@@ -1,3 +1,8 @@
+# Important Note As Of 11/11/2023
+Professor Gray has updated his template and provided a new link that works (https://drive.google.com/file/d/1tjq_WXX30M4CHo1y9SkRPQhHybon6W6M/view)
+
+Until further notice this repository will be archived, and you should instead use the Google Drive link above (can also be found on https://sites.esm.psu.edu/~gray/psu-latex-thesis-class.html)
+
 # PSU_Thesis
 The Penn State University thesis class file and template for use with LaTeX. 
 
